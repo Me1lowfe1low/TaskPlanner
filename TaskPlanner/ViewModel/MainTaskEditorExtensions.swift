@@ -15,6 +15,11 @@ extension MainTaskEditor {
     }
     
     func saveChanges() {
+        if ( task.title! != taskList.title) {
+            task.title = taskList.title
+            try? moc.save()
+        }
+        
         let compareSet = Set(task.subTaskArray.map { Task(id: $0.id!, name: $0.name!) } )
         let resultExtraRecords = taskList.tasks.map{ Task(id: $0.id, name: $0.name) }.filter{ !compareSet.contains( $0 ) }  // Empty if there are no added subtasks or some initial subtasks were removed
         let resultRestRecords = task.subTaskArray.map{ Task(id: $0.id!, name: $0.name!) }.filter{ taskList.tasks.map{ Task(id: $0.id, name: $0.name) }.contains($0) } // Empty if all initial tasks were removed

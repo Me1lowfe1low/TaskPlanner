@@ -13,5 +13,4 @@ class Tasks: ObservableObject {
     @Published var timestamp: Date = Date()
     @Published var title = "Title"
     @Published var tasks = [Task]()
-    
 }

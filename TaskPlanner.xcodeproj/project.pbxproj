@@ -40,7 +40,7 @@
 		51BAD0A329886DF80088150B /* SubTask+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SubTask+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		51BAD0A629886E6F0088150B /* SubTask+CoreDataClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "SubTask+CoreDataClass.swift"; sourceTree = "<group>"; };
 		51BAD0A729886E6F0088150B /* MainTask+CoreDataClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "MainTask+CoreDataClass.swift"; sourceTree = "<group>"; };
-		51BAD0B4298A42B40088150B /* MainTaskEditor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = MainTaskEditor.swift; path = TaskPlanner/MainTaskEditor.swift; sourceTree = SOURCE_ROOT; };
+		51BAD0B4298A42B40088150B /* MainTaskEditor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = MainTaskEditor.swift; path = TaskPlanner/View/MainTaskEditor.swift; sourceTree = SOURCE_ROOT; };
 		51BAD0B8298A4C890088150B /* Task.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Task.swift; sourceTree = "<group>"; };
 		51BAD0BA298A5A8D0088150B /* Tasks.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Tasks.swift; path = TaskPlanner/ViewModel/Tasks.swift; sourceTree = SOURCE_ROOT; };
 		51BAD0BC298A66170088150B /* MainTaskView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTaskView.swift; sourceTree = "<group>"; };

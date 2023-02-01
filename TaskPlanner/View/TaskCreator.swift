@@ -16,10 +16,10 @@ struct TaskCreator: View {
     var body: some View {
         VStack( alignment: .leading) {
             List {
-                TextEditor(text: $taskList.title)
+                TextField("Title", text: $taskList.title)
                     .font(.title)
                 ForEach($taskList.tasks, id: \.self) { $task in
-                    TextEditor(text: $task.name)
+                    TextField("Sub-task title", text: $task.name)
                         .font(.caption)
                 }
                 .onDelete(perform: removeSubTask )

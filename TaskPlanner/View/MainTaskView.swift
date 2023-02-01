@@ -18,7 +18,11 @@ struct MainTaskView: View {
             Section(header: Text(task!.wrappedTitle)) {
                 VStack(alignment: .leading) {
                     ForEach(task!.subTaskArray, id:\.self) { subTask in
-                        Label(subTask.wrappedName, systemImage: "square")
+                        HStack(alignment: .top, spacing: 5 ) {
+                            Label(subTask.wrappedName, systemImage: "square")
+                                .frame(alignment: .leading)
+                            Spacer()
+                        }
                     }
                 }
             }
