@@ -10,7 +10,7 @@ import CoreData
 
 struct ContentView: View {
     @Environment(\.managedObjectContext) var moc
-    @FetchRequest(sortDescriptors: []) var taskVault: FetchedResults<MainTask>
+    @FetchRequest(sortDescriptors: [NSSortDescriptor(keyPath: \MainTask.timestamp, ascending: false)]) var taskVault: FetchedResults<MainTask>
     
     var body: some View {
         VStack{

@@ -15,7 +15,9 @@ struct MainTaskView: View {
     
     var body: some View {
         VStack {
-            Section(header: Text(task!.wrappedTitle)) {
+            Section(header: Text(task!.wrappedTitle)
+                .font(.title)
+                .bold()) {
                 VStack(alignment: .leading) {
                     ForEach(task!.subTaskArray, id:\.self) { subTask in
                         HStack(alignment: .top, spacing: 5 ) {

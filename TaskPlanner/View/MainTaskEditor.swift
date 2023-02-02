@@ -9,6 +9,7 @@ import SwiftUI
 
 struct MainTaskEditor: View {
     @Environment(\.managedObjectContext) var moc
+    @Environment(\.dismiss) var dismiss
     @StateObject var taskList: Tasks = Tasks()
     @State var task: MainTask
     
@@ -17,10 +18,17 @@ struct MainTaskEditor: View {
             List {
                 TextField(task.title!, text: $taskList.title)
                     .font(.title)
+                    .bold()
+                    .padding()
                 ForEach(taskList.tasks.indices, id: \.self) { index in
-                    TextField( (index < task.subTaskArray.count) ? task.subTaskArray[index].wrappedName : "", text: $taskList.tasks[index].name)
-                        .font(.callout)
+                    HStack {
+                        Text("\(taskList.tasks[index].position)")
+                        Divider()
+                        TextField( (index < task.subTaskArray.count) ? task.subTaskArray[index].wrappedName : "", text: $taskList.tasks[index].name)
+                            .font(.callout)
+                    }
                 }
+                .onMove(perform: move )
                 .onDelete(perform: removeSubTask )
                 HStack( alignment: .top) {
                     Label("",systemImage: "plus")
@@ -28,13 +36,14 @@ struct MainTaskEditor: View {
                 }
                 .padding(.horizontal)
                 .onTapGesture {
-                    taskList.tasks.append(Task())
+                    taskList.tasks.append(Task(position: taskList.tasks.count ))
                 }
             }
         }
         .onAppear(perform: fillStruct)
         Button("Save") {
             saveChanges()
+            dismiss()
         }
         Text("")
     }

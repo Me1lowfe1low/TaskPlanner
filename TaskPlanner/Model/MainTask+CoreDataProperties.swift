@@ -33,14 +33,12 @@ extension MainTask {
     }
     
     public var subTaskArray: [SubTask] {
-        var set = subTask as? Set<SubTask> ?? []
+        let set = subTask as? Set<SubTask> ?? []
         
         return set.sorted  {
-            $0.wrappedName < $1.wrappedName
+            $0.wrappedPosition < $1.wrappedPosition
         }
     }
-
-
 }
 
 // MARK: Generated accessors for subTask
