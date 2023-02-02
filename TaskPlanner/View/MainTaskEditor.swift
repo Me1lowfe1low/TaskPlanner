@@ -22,7 +22,11 @@ struct MainTaskEditor: View {
                     .padding()
                 ForEach(taskList.tasks.indices, id: \.self) { index in
                     HStack {
-                        Text("\(taskList.tasks[index].position)")
+                        Image(systemName: taskList.tasks[index].isChecked ? "checkmark.square" : "square")
+                            .onTapGesture(perform: {
+                                print("User tapped at \(taskList.tasks[index].position)")
+                                taskList.tasks[index].isChecked.toggle()
+                            })
                         Divider()
                         TextField( (index < task.subTaskArray.count) ? task.subTaskArray[index].wrappedName : "", text: $taskList.tasks[index].name)
                             .font(.callout)

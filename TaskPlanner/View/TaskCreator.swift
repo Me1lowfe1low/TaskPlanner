@@ -24,7 +24,11 @@ struct TaskCreator: View {
                     .padding()
                 ForEach($taskList.tasks, id: \.id) { $task in
                     HStack {
-                        Text("\(task.position)")
+                        Image(systemName: task.isChecked ? "checkmark.square" : "square")
+                            .onTapGesture(perform: {
+                                print("User tapped at \(task.position)")
+                                task.isChecked.toggle()
+                            })
                         Divider()
                         TextField("Sub-task title", text: $task.name)
                             .font(.caption)
@@ -40,7 +44,6 @@ struct TaskCreator: View {
                 .padding(.horizontal)
                 .onTapGesture {
                     taskList.tasks.append(Task(position: taskList.tasks.count))
-                    //print(taskList.tasks.count)
                 }
                 
             }
