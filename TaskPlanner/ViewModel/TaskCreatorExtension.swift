@@ -19,7 +19,6 @@ extension TaskCreator {
         }
         return taskList.title != "Title" || changeFlag
     }
-   
     
     func saveMainTask() {
         if initialTaskWasChanged() {
@@ -28,7 +27,7 @@ extension TaskCreator {
             mainTask.id = taskList.id
             mainTask.title = taskList.title
             mainTask.timestamp = taskList.timestamp
-            print("Saving data with id: \(String(describing: mainTask.id?.uuidString))")
+            //print("Saving data with id: \(String(describing: mainTask.id?.uuidString))")
             
             if taskList.tasks.count >= 1 {
                 for ind in 0...taskList.tasks.count-1 {
@@ -40,7 +39,7 @@ extension TaskCreator {
                     subEmptyTask.mainTask = mainTask
                     
                     try? moc.save()
-                    print("Saving data with id: \(String(describing: subEmptyTask.id?.uuidString))")
+                    //print("Saving data with id: \(String(describing: subEmptyTask.id?.uuidString))")
                 }
             } else {
                 let subEmptyTask = SubTask(context: moc)
@@ -68,4 +67,5 @@ extension TaskCreator {
         taskList.tasks.move(fromOffsets: source, toOffset: destination)
         taskList.shiftPositionsOnMove(at: destination, from: source.first!)
     }
+
 }

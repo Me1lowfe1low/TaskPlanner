@@ -21,7 +21,8 @@ struct MainTaskView: View {
                 VStack(alignment: .leading) {
                     ForEach(task!.subTaskArray, id:\.self) { subTask in
                         HStack(alignment: .top, spacing: 5 ) {
-                            Label(subTask.wrappedName, systemImage: "square")
+                            Image(systemName: subTask.wrappedCheck ? "checkmark.square" : "square")
+                            Text(subTask.wrappedName)
                                 .frame(alignment: .leading)
                             Spacer()
                         }
