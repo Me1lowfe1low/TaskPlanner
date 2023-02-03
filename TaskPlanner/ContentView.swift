@@ -1,15 +1,22 @@
+// Created for TaskPlanner on 30.01.2023
+// by Dmitry Gordienko
+// git: https://github.com/Me1lowfe1low
+// Using Swift 5.0
+// Running on macOS 13.0
 //
 //  ContentView.swift
 //  TaskPlanner
 //
-//  Created by Дмитрий Гордиенко on 30.01.2023.
 //
+// Unauthorised reproduction is prohibited, contact dmgordienko@gmail.com for details
+// Could be used in educational purposes
 
 import SwiftUI
 import CoreData
 
 struct ContentView: View {
     @Environment(\.managedObjectContext) var moc
+    @EnvironmentObject var dataController: DataController
     @FetchRequest(sortDescriptors: [NSSortDescriptor(keyPath: \MainTask.timestamp, ascending: false)]) var taskVault: FetchedResults<MainTask>
     
     var body: some View {
@@ -20,6 +27,7 @@ struct ContentView: View {
                         NavigationLink(destination: {
                             MainTaskEditor(task: mainTask)
                                 .environment(\.managedObjectContext, moc)
+                                .environmentObject(dataController)
                         },
                                        label: { MainTaskView(task: mainTask)
                             
@@ -27,7 +35,6 @@ struct ContentView: View {
                     }
                     .onDelete(perform: deleteTask)
                 }
-                //Button at the end of the list
                 VStack(alignment: .trailing) {
                     Spacer()
                     HStack(alignment: .bottom) {
@@ -35,6 +42,7 @@ struct ContentView: View {
                         NavigationLink(destination: {
                             TaskCreator()
                                 .environment(\.managedObjectContext, moc)
+                                .environmentObject(dataController)
                         },
                             label: {
                             Image(systemName: "plus.circle")
@@ -45,6 +53,12 @@ struct ContentView: View {
                     .padding()
                 }
             }
+        }
+    }
+    
+    func deleteTask(at offsets: IndexSet) {
+        for offset in offsets {
+            dataController.deleteTask(moc, task: taskVault[offset])
         }
     }
 }

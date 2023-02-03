@@ -1,9 +1,15 @@
+// Created for TaskPlanner on 01.02.2023
+// by Dmitry Gordienko
+// git: https://github.com/Me1lowfe1low
+// Using Swift 5.0
+// Running on macOS 13.0
 //
 //  MainTaskView.swift
 //  TaskPlanner
 //
-//  Created by Дмитрий Гордиенко on 01.02.2023.
 //
+// Unauthorised reproduction is prohibited, contact dmgordienko@gmail.com for details
+// Could be used in educational purposes
 
 import SwiftUI
 

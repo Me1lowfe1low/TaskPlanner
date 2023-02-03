@@ -1,15 +1,23 @@
+// Created for TaskPlanner on 30.01.2023
+// by Dmitry Gordienko
+// git: https://github.com/Me1lowfe1low
+// Using Swift 5.0
+// Running on macOS 13.0
 //
 //  TaskCreator.swift
 //  TaskPlanner
 //
-//  Created by Дмитрий Гордиенко on 30.01.2023.
 //
+// Unauthorised reproduction is prohibited, contact dmgordienko@gmail.com for details
+// Could be used in educational purposes
+
 
 import SwiftUI
 
 struct TaskCreator: View {
     @Environment(\.managedObjectContext) var moc
     @Environment(\.dismiss) var dismiss
+    @EnvironmentObject var dataController: DataController
     @FetchRequest(sortDescriptors: []) var taskVault: FetchedResults<MainTask>
     
     @StateObject var taskList: Tasks = Tasks()
@@ -35,8 +43,8 @@ struct TaskCreator: View {
                         Spacer()
                     }
                 }
-                .onMove(perform: move )
-                .onDelete(perform: removeSubTask )
+                .onMove(perform: taskList.move )
+                .onDelete(perform: taskList.removeSubTask )
                 HStack( alignment: .top) {
                     Label("",systemImage: "plus")
                     Text("List sub task")
@@ -49,7 +57,7 @@ struct TaskCreator: View {
             }
         }
         Button("Save") {
-            saveMainTask()
+            dataController.saveInitialChanges(moc,task: taskList)
             dismiss()
         }
     }
