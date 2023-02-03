@@ -1,9 +1,15 @@
+// Created for TaskPlanner on 01.02.2023
+// by Dmitry Gordienko
+// git: https://github.com/Me1lowfe1low
+// Using Swift 5.0
+// Running on macOS 13.0
 //
 //  Tasks.swift
 //  TaskPlanner
 //
-//  Created by Дмитрий Гордиенко on 01.02.2023.
 //
+// Unauthorised reproduction is prohibited, contact dmgordienko@gmail.com for details
+// Could be used in educational purposes
 
 import Foundation
 import CoreData
@@ -47,6 +53,35 @@ class Tasks: ObservableObject {
                 }
             }
         }
-        print("Sort completed")
     }
+    
+    func initialTaskWasChanged() -> Bool {
+        var changeFlag: Bool = false
+        if tasks.count >= 1 {
+            for ind in 0...tasks.count-1 {
+                if tasks[ind].name != "" {
+                    changeFlag = true
+                }
+            }
+        }
+        return title != "Title" || changeFlag
+    }
+    
+    func fillEntity(_ task: MainTask) {
+        title = task.title!
+        tasks = task.subTaskArray.map {
+            Task(id: $0.id!, name: $0.name!, position: $0.wrappedPosition, isChecked: $0.wrappedCheck)
+        }
+    }
+    
+    func removeSubTask(at offsets: IndexSet) {
+        tasks.remove(atOffsets: offsets)
+        shiftPositionsOnRemoval(at: offsets.first!)
+    }
+    
+    func move(from source: IndexSet, to destination: Int) {
+        tasks.move(fromOffsets: source, toOffset: destination)
+        shiftPositionsOnMove(at: destination, from: source.first!)
+    }
+
 }

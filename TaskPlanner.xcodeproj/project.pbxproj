@@ -22,9 +22,6 @@
 		51BAD0B9298A4C890088150B /* Task.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51BAD0B8298A4C890088150B /* Task.swift */; };
 		51BAD0BB298A5A8D0088150B /* Tasks.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51BAD0BA298A5A8D0088150B /* Tasks.swift */; };
 		51BAD0BD298A66170088150B /* MainTaskView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51BAD0BC298A66170088150B /* MainTaskView.swift */; };
-		51BAD0BF298AC3290088150B /* MainTaskEditorExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51BAD0BE298AC3290088150B /* MainTaskEditorExtensions.swift */; };
-		51BAD0C1298AC3B40088150B /* TaskCreatorExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51BAD0C0298AC3B40088150B /* TaskCreatorExtension.swift */; };
-		51BAD0C3298AC8E20088150B /* ContentViewExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51BAD0C2298AC8E20088150B /* ContentViewExtensions.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -44,9 +41,6 @@
 		51BAD0B8298A4C890088150B /* Task.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Task.swift; sourceTree = "<group>"; };
 		51BAD0BA298A5A8D0088150B /* Tasks.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Tasks.swift; path = TaskPlanner/ViewModel/Tasks.swift; sourceTree = SOURCE_ROOT; };
 		51BAD0BC298A66170088150B /* MainTaskView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTaskView.swift; sourceTree = "<group>"; };
-		51BAD0BE298AC3290088150B /* MainTaskEditorExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTaskEditorExtensions.swift; sourceTree = "<group>"; };
-		51BAD0C0298AC3B40088150B /* TaskCreatorExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskCreatorExtension.swift; sourceTree = "<group>"; };
-		51BAD0C2298AC8E20088150B /* ContentViewExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentViewExtensions.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -103,9 +97,6 @@
 		51B70C422987FE32006CCB36 /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
-				51BAD0BE298AC3290088150B /* MainTaskEditorExtensions.swift */,
-				51BAD0C2298AC8E20088150B /* ContentViewExtensions.swift */,
-				51BAD0C0298AC3B40088150B /* TaskCreatorExtension.swift */,
 				51BAD0BA298A5A8D0088150B /* Tasks.swift */,
 			);
 			path = ViewModel;
@@ -210,14 +201,11 @@
 				51BAD0BD298A66170088150B /* MainTaskView.swift in Sources */,
 				51BAD0B9298A4C890088150B /* Task.swift in Sources */,
 				51BAD0A929886E6F0088150B /* MainTask+CoreDataClass.swift in Sources */,
-				51BAD0C1298AC3B40088150B /* TaskCreatorExtension.swift in Sources */,
 				51B70C482987FEFA006CCB36 /* TaskCreator.swift in Sources */,
 				51B70C352987FE10006CCB36 /* ContentView.swift in Sources */,
 				51BAD0B5298A42B40088150B /* MainTaskEditor.swift in Sources */,
 				51B70C532987FF22006CCB36 /* TaskPlanner.xcdatamodeld in Sources */,
-				51BAD0C3298AC8E20088150B /* ContentViewExtensions.swift in Sources */,
 				51BAD0A529886DF80088150B /* SubTask+CoreDataProperties.swift in Sources */,
-				51BAD0BF298AC3290088150B /* MainTaskEditorExtensions.swift in Sources */,
 				51B70C332987FE10006CCB36 /* TaskPlannerApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

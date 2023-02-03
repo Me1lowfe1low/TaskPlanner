@@ -1,15 +1,22 @@
+// Created for TaskPlanner on 01.02.2023
+// by Dmitry Gordienko
+// git: https://github.com/Me1lowfe1low
+// Using Swift 5.0
+// Running on macOS 13.0
 //
 //  MainTaskEditor.swift
 //  TaskPlanner
 //
-//  Created by Дмитрий Гордиенко on 01.02.2023.
 //
+// Unauthorised reproduction is prohibited, contact dmgordienko@gmail.com for details
+// Could be used in educational purposes
 
 import SwiftUI
 
 struct MainTaskEditor: View {
     @Environment(\.managedObjectContext) var moc
     @Environment(\.dismiss) var dismiss
+    @EnvironmentObject var dataController: DataController
     @StateObject var taskList: Tasks = Tasks()
     @State var task: MainTask
     
@@ -32,8 +39,8 @@ struct MainTaskEditor: View {
                             .font(.callout)
                     }
                 }
-                .onMove(perform: move )
-                .onDelete(perform: removeSubTask )
+                .onMove(perform: taskList.move )
+                .onDelete(perform: taskList.removeSubTask )
                 HStack( alignment: .top) {
                     Label("",systemImage: "plus")
                     Text("List sub task")
@@ -44,9 +51,9 @@ struct MainTaskEditor: View {
                 }
             }
         }
-        .onAppear(perform: fillStruct)
+        .onAppear(perform: { taskList.fillEntity(task) } )
         Button("Save") {
-            saveChanges()
+            dataController.saveOnEditChanges(moc, entryToRecord: taskList, initialValue: task)
             dismiss()
         }
         Text("")
